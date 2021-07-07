@@ -65,7 +65,7 @@ class LoadDatabase {
             log.info("Preloading " + repository.save(this.person2));
             log.info("Preloading " + repository.save(this.person3));
             log.info("Preloading " + repository.save(new Person("Димитър Димитров", "Мъж",
-                  "Тени на корт - 8/10, Баскетбол - 6/10", 21)));
+                  "Тенис на корт - 8/10, Баскетбол - 6/10", 21)));
         };
     }
 
