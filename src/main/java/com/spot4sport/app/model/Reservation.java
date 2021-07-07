@@ -12,20 +12,21 @@ public class Reservation {
     @GeneratedValue
     private Long id;
     @OneToOne
-    private Court courtName;
+    private Court court;
     @OneToOne
-    private Person eventHost;
+    private Person organizer;
     private String time;
+    private String sport;
     private int numberOfUsers;
 
     public Reservation() {
     }
 
-    public Reservation(Long id, Court courtName, Person eventHost, String time, int numberOfUsers) {
-        this.id = id;
-        this.courtName = courtName;
-        this.eventHost = eventHost;
+    public Reservation(Court court, Person organizer, String time, String sport, int numberOfUsers) {
+        this.court = court;
+        this.organizer = organizer;
         this.time = time;
+        this.sport = sport;
         this.numberOfUsers = numberOfUsers;
     }
 
@@ -33,9 +34,10 @@ public class Reservation {
     public String toString() {
         return "Reservation{" +
                 "id=" + id +
-                ", courtName=" + courtName +
-                ", eventHost=" + eventHost +
+                ", courtName=" + court +
+                ", organizer=" + organizer +
                 ", time='" + time + '\'' +
+                ", sport='" + sport + '\'' +
                 ", numberOfUsers=" + numberOfUsers +
                 '}';
     }
@@ -49,17 +51,19 @@ public class Reservation {
 
         if (numberOfUsers != that.numberOfUsers) return false;
         if (id != null ? !id.equals(that.id) : that.id != null) return false;
-        if (courtName != null ? !courtName.equals(that.courtName) : that.courtName != null) return false;
-        if (eventHost != null ? !eventHost.equals(that.eventHost) : that.eventHost != null) return false;
+        if (court != null ? !court.equals(that.court) : that.court != null) return false;
+        if (organizer != null ? !organizer.equals(that.organizer) : that.organizer != null) return false;
+        if (sport != null ? !sport.equals(that.sport) : that.sport != null) return false;
         return time != null ? time.equals(that.time) : that.time == null;
     }
 
     @Override
     public int hashCode() {
         int result = id != null ? id.hashCode() : 0;
-        result = 31 * result + (courtName != null ? courtName.hashCode() : 0);
-        result = 31 * result + (eventHost != null ? eventHost.hashCode() : 0);
+        result = 31 * result + (court != null ? court.hashCode() : 0);
+        result = 31 * result + (organizer != null ? organizer.hashCode() : 0);
         result = 31 * result + (time != null ? time.hashCode() : 0);
+        result = 31 * result + (sport != null ? sport.hashCode() : 0);
         result = 31 * result + numberOfUsers;
         return result;
     }
@@ -72,20 +76,20 @@ public class Reservation {
         this.id = id;
     }
 
-    public Court getCourtName() {
-        return courtName;
+    public Court getCourt() {
+        return court;
     }
 
-    public void setCourtName(Court courtName) {
-        this.courtName = courtName;
+    public void setCourt(Court courtName) {
+        this.court = courtName;
     }
 
-    public Person getEventHost() {
-        return eventHost;
+    public Person getOrganizer() {
+        return organizer;
     }
 
-    public void setEventHost(Person eventHost) {
-        this.eventHost = eventHost;
+    public void setOrganizer(Person organizer) {
+        this.organizer = organizer;
     }
 
     public String getTime() {
@@ -94,6 +98,14 @@ public class Reservation {
 
     public void setTime(String time) {
         this.time = time;
+    }
+
+    public String getSport() {
+        return sport;
+    }
+
+    public void setSport(String sport) {
+        this.sport = sport;
     }
 
     public int getNumberOfUsers() {
