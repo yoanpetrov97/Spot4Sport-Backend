@@ -18,8 +18,7 @@ public class Person {
     public Person() {
 
     }
-    public Person(Long id, String name, String gender, String sports, int age) {
-        this.id = id;
+    public Person(String name, String gender, String sports, int age) {
         this.name = name;
         this.gender = gender;
         this.sports = sports;
