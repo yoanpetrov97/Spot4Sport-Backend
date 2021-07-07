@@ -23,6 +23,12 @@ class LoadDatabase {
     private final Court court2 = new Court("Спортна зала \"Fireball\"",
           "1 зала за волейбол, 2 бадминтон корта, 1 зала за скуош, 4 тенис маси",
           "Цариградско шосе 133, БИЦ-ИЗОТ корпус 4");
+    private final Court court3 = new Court("Баскетболен клуб \"ЦСКА\"",
+          "1 зала за баскетбол",
+          "Черни връх 11");
+    private final Court court4 = new Court("Спортен център \"Лозенец\"",
+          "2 игрища за волейбол, 1 игрище за баскетбол, 4 тенис корта, 1 игрище за бадминтон",
+          "бул. Джеймс Баучер 9");
     private final Person person1 = new Person("Илън Мъск", "Мъж",
           "Футбол - 7/10, Волейбол - 5/10", 50);
     private final Person person2 = new Person("Георги Георгиев", "Мъж",
@@ -38,16 +44,12 @@ class LoadDatabase {
                   "1 зала за волейбол",
                   "ж.к. \"Студентски град\"")));
             log.info("Preloading " + repository.save(court2));
-            log.info("Preloading " + repository.save(new Court("Спортен център \"Dream body\"",
-                  "1 зала за баскетбол, 1 зала за футбол",
-                  "Черни връх 11")));
+            log.info("Preloading " + repository.save(this.court3));
             log.info("Preloading " + repository.save(this.court1));
             log.info("Preloading " + repository.save(new Court("Спортна зала \"Раковски\"",
                   "1 игрище за футбол, 1 игрище за баскетбол, 1 тенис корт",
                   "бул. България 5")));
-            log.info("Preloading " + repository.save(new Court("Спортен център \"Лозенец\"",
-                  "2 игрища за волейбол, 1 игрище за баскетбол, 4 тенис корта, 1 игрище за бадминтон",
-                  "бул. Джеймс Баучер 9")));
+            log.info("Preloading " + repository.save(this.court4));
             log.info("Preloading " + repository.save(new Court("Спортен център \"Кристал\"",
                   "1 игрище за футбол, 2 игрища за баскетбол, 2 игрища за бадминтон",
                   "бул. Ломско шосе 209")));
@@ -75,8 +77,10 @@ class LoadDatabase {
         return args -> {
             log.info("Preloading " + repository.save(new Reservation(this.court1, this.person2,
                   "14.07.2021г. - 16:00", "Футбол", 14)));
-            log.info("Preloading " + repository.save(new Reservation(this.court2, this.person3,
+            log.info("Preloading " + repository.save(new Reservation(this.court4, this.person3,
                   "20.07.2021г. - 18:00", "Волейбол", 12)));
+            log.info("Preloading " + repository.save(new Reservation(this.court3, this.person3,
+                  "23.07.2021г. - 20:00", "Баскетбол", 12)));
         };
     }
 
